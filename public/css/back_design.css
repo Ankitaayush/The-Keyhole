@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
+@keyframes showTopText {
+  0% { transform: translate3d(0, 100%, 0); }
+  40%, 60% { transform: translate3d(0, 50%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes showBottomText {
+    0% { transform: translate3d(0, -100%, 0); }
+    40%, 60% { transform: translate3d(0, -50%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+.animated-title {
+  /* color: #666060; */
+  color: rgb(163, 43, 43);
+  font-family: 'Cabin Sketch', cursive;
+  height: 90vmin;
+  left: 40%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vmin;
+}
+.animated-title > div {
+  height: 50%;
+  overflow: hidden;
+  position: absolute;
+  width: 80%;
+  /* color: aquamarine; */
+}
+.animated-title > div div {
+  font-size: 6vmin;
+  padding: 2vmin 0;
+  position: absolute;
+}
+.animated-title > div div span {
+  display: block;
+}
+.animated-title > div.text-top {
+  border-bottom: 1vmin ridge rgba(0, 0, 0, 0.7);
+  top: 0;
+}
+.animated-title > div.text-top div {
+  animation: showTopText 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  bottom: 0;
+  transform: translate(0, 100%);
+}
+
+.animated-title > div.text-top div span:first-child {
+    color: black;
+}
+.animated-title > div.text-bottom div span:last-child {
+    color: black;
+}
+.animated-title > div.text-bottom {
+  bottom: 0;
+}
+.animated-title > div.text-bottom div {
+  animation: showBottomText 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  top: 0;
+  transform: translate(0, -100%);
+}
+
+@media (max-width: 1000px){
+  .animated-title > div div {
+    font-size: 4.5vmin;
+  }
+  .animated-title{
+    left: 50%;
+  }
+}
