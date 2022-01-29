@@ -1,259 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KeyHole</title>
-    <link rel="icon" href="logo_1.1.png" sizes="50x75">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo_1.1.png" sizes="50x75" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Limelight&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- login css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="login.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"
+    />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="login.css" />
 
-    <link rel="stylesheet" href="./css/navig.css">
-    <link rel="stylesheet" href="./css/back_design.css">
-    <link rel="stylesheet" href="./css/search_anim.css">
-    <link rel="stylesheet" href="./css/footer.css">
-</head>
+    <link rel="stylesheet" href="./css/navig.css" />
+    <link rel="stylesheet" href="./css/back_design.css" />
+    <link rel="stylesheet" href="./css/search_anim.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+  </head>
 
-<body>
+  <body>
     <section id="backg-1">
-        <header>
-            <nav class="navbar">
-                <div>
-                    <img src="./image/logo_1.1.png" class="logo_img" alt="logo" width="50px" height="75px">
-                    <h1 class="logo">THE KEYHOLE</h1>
+      <header>
+        <nav class="navbar">
+          <div>
+            <img
+              src="./image/logo_1.1.png"
+              class="logo_img"
+              alt="logo"
+              width="50px"
+              height="75px"
+            />
+            <h1 class="logo">THE KEYHOLE</h1>
+          </div>
+          <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+          <ul class="nav_links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#backg-2">Search</a></li>
+            <li><a href="#" onclick="togglePopup()">Explore</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="#foot">Contact</a></li>
+            <a href="#" class="but"
+              ><button onclick="togglePopup()" class="first-button">
+                Login/Sign Up
+              </button></a
+            >
+          </ul>
+        </nav>
+      </header>
+
+      <div class="popup" id="popup-1">
+        <div class="content">
+          <div class="row full-height justify-content-center">
+            <div class="col-12 text-center align-self-center py-3">
+              <div class="popup pb-5 pt-5 pt-sm-2 text-center">
+                <div style="color: #2a2b38">
+                  <h6 class="mb-0 pb-3">
+                    <span>Log In </span><span>Sign Up</span>
+                  </h6>
                 </div>
-                <a href="#" class="toggle-button">
-
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </a>
-                <ul class="nav_links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#backg-2">Search</a></li>
-                    <li><a href="#" onclick="togglePopup()">Explore</a></li>
-                    <li><a href="./about.ejs">About</a></li>
-                    <li><a href="#foot">Contact</a></li>
-                    <a href="#" class="but"><button onclick="togglePopup()" class="first-button">Login/Sign
-                            Up</button></a>
-                </ul>
-            </nav>
-        </header>
-
-
-
-        <div class="popup" id="popup-1">
-            <div class="content">
-                <div class="row full-height justify-content-center">
-                    <div class="col-12 text-center align-self-center py-3">
-                        <div class="popup pb-5 pt-5 pt-sm-2 text-center">
-                            <div style="color: #2a2b38;">
-                                <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+                <a class="close" id="popup-1"
+                  ><button onclick="togglePopup()" class="second-button">
+                    ×
+                  </button></a
+                >
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  id="reg-log"
+                  name="reg-log"
+                />
+                <label for="reg-log"></label>
+                <div class="card-3d-wrap mx-auto">
+                  <div class="card-3d-wrapper">
+                    <div class="card-front">
+                      <div class="center-wrap">
+                        <div class="popup text-center">
+                          <form action="/login" method="post">
+                            <h4 class="mb-4 pb-3">Log In</h4>
+                            <div class="form-group">
+                              <input
+                                type="email"
+                                name="email"
+                                class="form-style"
+                                placeholder="Your Email"
+                                id="email"
+                                autocomplete="off"
+                              />
+                              <i class="input-icon uil uil-at"></i>
                             </div>
-                            <a class="close" id="popup-1"><button onclick="togglePopup()"
-                                    class="second-button">×</button></a>
-                            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
-                            <label for="reg-log"></label>
-                            <div class="card-3d-wrap mx-auto">
-                                <div class="card-3d-wrapper">
-                                    <div class="card-front">
-                                        <div class="center-wrap">
-                                            <div class="popup text-center">
-                                                <form action="/login" method="post">
-                                                    <h4 class="mb-4 pb-3">Log In</h4>
-                                                    <div class="form-group">
-                                                        <input type="email" name="email" class="form-style"
-                                                            placeholder="Your Email" id="email" autocomplete="off">
-                                                        <i class="input-icon uil uil-at"></i>
-                                                    </div>
-                                                    <div class="form-group mt-2">
-                                                        <input type="password" name="password" class="form-style"
-                                                            placeholder="Your Password" id="pass" autocomplete="off">
-                                                        <i class="input-icon uil uil-lock-alt"></i>
-                                                    </div>
-                                                    <button class="b-btn mt-4">submit</button>
-                                                    <p class="mb-0 mt-4 text-center"><a
-                                                            href="./forget_password/forget_password.html"
-                                                            class="link">Forgot
-                                                            your
-                                                            password?</a></p>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-back">
-                                        <div class="center-wrap">
-                                            <div class="popup text-center">
-                                                <form action="/register" method="post">
-                                                    <h4 class="mb-4 pb-3">Sign Up</h4>
-                                                    <div class="form-group">
-                                                        <input type="text" name="name" class="form-style"
-                                                            placeholder="Your Full Name" id="name" autocomplete="off">
-                                                        <i class="input-icon uil uil-user"></i>
-                                                    </div>
-                                                    <div class="form-group mt-2">
-                                                        <input type="email" name="email" class="form-style"
-                                                            placeholder="Your Email" id="email" autocomplete="off">
-                                                        <i class="input-icon uil uil-at"></i>
-                                                    </div>
-                                                    <div class="form-group mt-2">
-                                                        <input type="text" name="dob" class="form-style"
-                                                            placeholder="Your Date of Birth" id="dob" autocomplete="off"
-                                                            onfocus="(this.type='date')" onblur="(this.type='text')">
-                                                        <i class="input-icon uil uil-notes"></i>
-                                                    </div>
-                                                    <div class="form-group mt-2">
-                                                        <input type="password" name="password" class="form-style"
-                                                            placeholder="Your Password" id="pass" autocomplete="off">
-                                                        <i class="input-icon uil uil-lock-alt"></i>
-                                                    </div>
-                                                    <button class="b-btn mt-4">submit</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="form-group mt-2">
+                              <input
+                                type="password"
+                                name="password"
+                                class="form-style"
+                                placeholder="Your Password"
+                                id="pass"
+                                autocomplete="off"
+                              />
+                              <i class="input-icon uil uil-lock-alt"></i>
                             </div>
+                            <button class="b-btn mt-4">submit</button>
+                            <p class="mb-0 mt-4 text-center">
+                              <a
+                                href="./forget_password/forget_password.html"
+                                class="link"
+                                >Forgot your password?</a
+                              >
+                            </p>
+                          </form>
                         </div>
+                      </div>
                     </div>
+                    <div class="card-back">
+                      <div class="center-wrap">
+                        <div class="popup text-center">
+                          <form action="/register" method="post">
+                            <h4 class="mb-4 pb-3">Sign Up</h4>
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                name="name"
+                                class="form-style"
+                                placeholder="Your Full Name"
+                                id="name"
+                                autocomplete="off"
+                              />
+                              <i class="input-icon uil uil-user"></i>
+                            </div>
+                            <div class="form-group mt-2">
+                              <input
+                                type="email"
+                                name="email"
+                                class="form-style"
+                                placeholder="Your Email"
+                                id="email"
+                                autocomplete="off"
+                              />
+                              <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-group mt-2">
+                              <input
+                                type="text"
+                                name="dob"
+                                class="form-style"
+                                placeholder="Your Date of Birth"
+                                id="dob"
+                                autocomplete="off"
+                                onfocus="(this.type='date')"
+                                onblur="(this.type='text')"
+                              />
+                              <i class="input-icon uil uil-notes"></i>
+                            </div>
+                            <div class="form-group mt-2">
+                              <input
+                                type="password"
+                                name="password"
+                                class="form-style"
+                                placeholder="Your Password"
+                                id="pass"
+                                autocomplete="off"
+                              />
+                              <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <button class="b-btn mt-4">submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
-        <!-- back design  -->
-        <div class="animated-title">
-            <div class="text-top">
-                <div>
-                    <span>Search Words</span>
-                    <span>Save Notes</span>
-                </div>
-            </div>
-            <div class="text-bottom">
-                <div>
-                    <span>Share Quotes</span>
-                    <span>See the Crypto</span>
-                </div>
-            </div>
+      <!-- back design  -->
+      <div class="animated-title">
+        <div class="text-top">
+          <div>
+            <span>Search Words</span>
+            <span>Save Notes</span>
+          </div>
         </div>
-        <!-- back design ends -->
+        <div class="text-bottom">
+          <div>
+            <span>Share Quotes</span>
+            <span>See the Crypto</span>
+          </div>
+        </div>
+      </div>
+      <!-- back design ends -->
     </section>
 
     <!-- Search tab -->
     <section id="backg-2">
-        <div id="search_tab">
-            <input type="text" class="s-tab" id="input" placeholder="Search...">
-            <img src="./image/magnifier.png" alt="Search" height="50px" width="50px" class="s-tab" id="search" type="button">
-        </div>
-        <div class="data">
-            <span class="loading">Loading...</span>
-            <p class="def"></p>
-            <div class="audio"></div>
-            <div class="not_found"></div>
-        </div>
+      <div id="search_tab">
+        <input type="text" class="s-tab" id="input" placeholder="Search..." />
+        <img
+          src="./image/magnifier.png"
+          alt="Search"
+          height="50px"
+          width="50px"
+          class="s-tab"
+          id="search"
+          type="button"
+        />
+      </div>
+      <div class="data">
+        <span class="loading">Loading...</span>
+        <p class="def"></p>
+        <div class="audio"></div>
+        <div class="not_found"></div>
+      </div>
     </section>
 
     <section id="backg-3">
-        <footer class="footer_area section_padding_130_0" id="foot">
-            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-            <div class="container">
-                <div class="row">
-                    <!-- Single Widget-->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-footer-widget section_padding_0_130">
-                            <!-- Footer Logo-->
-                            <div class="footer-logo mb-3"></div>
-                            <p>The Keyhole is a multi-purpose webpage which helps you to "Peep Into The Infinity"</p>
-                            <!-- Copywrite Text-->
-                            <div class="copywrite-text mb-5">
-                                <p class="mb-0">Support us<i class="lni-heart mr-1"></i>on<a class="ml-1"
-                                        href="https://github.com">GitHub</a></p>
-                            </div>
-                            <!-- Footer Social Area-->
-                            <div class="footer_social_area"><a href="#" data-toggle="tooltip" data-placement="top"
-                                    title="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a><a
-                                    href="#" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Instagram"><i class="fa fa-instagram"></i></a><a href="#"
-                                    data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a><a href="#"
-                                    data-toggle="tooltip" data-placement="top" title="" data-original-title="Github"><i
-                                        class="fa fa-github"></i></a></div>
-                        </div>
-                    </div>
-                    <!-- Single Widget-->
-                    <div class="col-12 col-sm-6 col-lg">
-                        <div class="single-footer-widget section_padding_0_130">
-                            <!-- Widget Title-->
-                            <h5 class="widget-title">About</h5>
-                            <!-- Footer Menu-->
-                            <div class="footer_menu">
-                                <ul>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Corporate Sale</a></li>
-                                    <li><a href="#">Terms &amp; Policy</a></li>
-                                    <li><a href="#">Community</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Widget-->
-                    <div class="col-12 col-sm-6 col-lg">
-                        <div class="single-footer-widget section_padding_0_130">
-                            <!-- Widget Title-->
-                            <h5 class="widget-title">Support</h5>
-                            <!-- Footer Menu-->
-                            <div class="footer_menu">
-                                <ul>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">Support</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Term &amp; Conditions</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Widget-->
-                    <div class="col-12 col-sm-6 col-lg">
-                        <div class="single-footer-widget section_padding_0_130">
-                            <!-- Widget Title-->
-                            <h5 class="widget-title">Contact</h5>
-                            <!-- Footer Menu-->
-                            <div class="footer_menu">
-                                <ul>
-                                    <li><a href="#">Call Centre</a></li>
-                                    <li><a href="#">Email Us</a></li>
-                                    <li><a href="#">Term &amp; Conditions</a></li>
-                                    <li><a href="#">Help Center</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+      <footer class="footer_area section_padding_130_0" id="foot">
+        <link
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+        />
+        <div class="container">
+          <div class="row">
+            <!-- Single Widget-->
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="single-footer-widget section_padding_0_130">
+                <!-- Footer Logo-->
+                <div class="footer-logo mb-3"></div>
+                <p>
+                  The Keyhole is a multi-purpose webpage which helps you to
+                  "Peep Into The Infinity"
+                </p>
+                <!-- Copywrite Text-->
+                <div class="copywrite-text mb-5">
+                  <p class="mb-0">
+                    Support us<i class="lni-heart mr-1"></i>on<a
+                      class="ml-1"
+                      href="https://github.com"
+                      >GitHub</a
+                    >
+                  </p>
                 </div>
+                <!-- Footer Social Area-->
+                <div class="footer_social_area">
+                  <a
+                    href="#"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title=""
+                    data-original-title="Facebook"
+                    ><i class="fa fa-facebook"></i></a
+                  ><a
+                    href="#"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title=""
+                    data-original-title="Instagram"
+                    ><i class="fa fa-instagram"></i></a
+                  ><a
+                    href="#"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title=""
+                    data-original-title="Linkedin"
+                    ><i class="fa fa-linkedin"></i></a
+                  ><a
+                    href="#"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title=""
+                    data-original-title="Github"
+                    ><i class="fa fa-github"></i
+                  ></a>
+                </div>
+              </div>
             </div>
-        </footer>
+            <!-- Single Widget-->
+            <div class="col-12 col-sm-6 col-lg">
+              <div class="single-footer-widget section_padding_0_130">
+                <!-- Widget Title-->
+                <h5 class="widget-title">About</h5>
+                <!-- Footer Menu-->
+                <div class="footer_menu">
+                  <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Corporate Sale</a></li>
+                    <li><a href="#">Terms &amp; Policy</a></li>
+                    <li><a href="#">Community</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Single Widget-->
+            <div class="col-12 col-sm-6 col-lg">
+              <div class="single-footer-widget section_padding_0_130">
+                <!-- Widget Title-->
+                <h5 class="widget-title">Support</h5>
+                <!-- Footer Menu-->
+                <div class="footer_menu">
+                  <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Term &amp; Conditions</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Single Widget-->
+            <div class="col-12 col-sm-6 col-lg">
+              <div class="single-footer-widget section_padding_0_130">
+                <!-- Widget Title-->
+                <h5 class="widget-title">Contact</h5>
+                <!-- Footer Menu-->
+                <div class="footer_menu">
+                  <ul>
+                    <li><a href="#">Call Centre</a></li>
+                    <li><a href="#">Email Us</a></li>
+                    <li><a href="#">Term &amp; Conditions</a></li>
+                    <li><a href="#">Help Center</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </section>
     <!-- popup js  -->
     <script src="./javascript/popuplogin.js"></script>
 
     <!-- hamburger js  -->
-    <script src="./javascript/hamburger.js"> </script>
+    <script src="./javascript/hamburger.js"></script>
 
     <!-- JS for word meaning and API -->
     <script src="./javascript/meaning.js"></script>
-
-</body>
-
+  </body>
 </html>

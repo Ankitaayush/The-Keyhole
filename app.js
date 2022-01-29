@@ -24,9 +24,6 @@ const {
   } = require('jwthelper')
 
 
-
-
-
 app.use(methodOverride('_method'));
 
 app.use(flash());
@@ -36,7 +33,7 @@ app.use(flash());
 
 //Setting Up mongoose
  
-     mongoose.connect("mongodb://127.0.0.1/keyhole",{
+     mongoose.connect("mongodb://localhost:27017/keyhole",{
         useNewUrlParser :true,
         useUnifiedTopology: true,
     
