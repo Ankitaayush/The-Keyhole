@@ -10,7 +10,6 @@
   100% { transform: translate3d(0, 0, 0); }
 }
 .animated-title {
-  /* color: #666060; */
   color: rgb(163, 43, 43);
   font-family: 'Cabin Sketch', cursive;
   height: 90vmin;
@@ -25,7 +24,6 @@
   overflow: hidden;
   position: absolute;
   width: 80%;
-  /* color: aquamarine; */
 }
 .animated-title > div div {
   font-size: 6vmin;
