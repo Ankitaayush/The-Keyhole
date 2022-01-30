@@ -8,7 +8,7 @@ body {
     color: #a2a0ac;
     background-color: #87b9e4;
     overflow-x: hidden;
-    cursor: url('point.png'),auto;
+    cursor: url('/image/point.png'),auto;
   }
 
 .footer_area {

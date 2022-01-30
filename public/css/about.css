@@ -16,6 +16,10 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+  cursor: url('/image/point.png'),auto;
+}
+button {
+  cursor: pointer;
 }
 
 button.home_but {
@@ -32,7 +36,6 @@ button.home_but {
   font-weight: 700;
   background-color: #fbc846;
   z-index: 999;
-  cursor: pointer;
 }
 button.home_but:hover {
   background-color: black;

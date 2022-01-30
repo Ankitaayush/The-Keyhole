@@ -129,7 +129,7 @@ h1::before {
   
 /* First background */
   #backg-1{
-    background-image: url('background.jpg');
+    background-image: url('/image/background.jpg');
     height: 100vh;
     width: 100vw;
     max-width: 100%;
