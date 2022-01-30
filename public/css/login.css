@@ -9,7 +9,7 @@ body {
   background-color: #87b9e4;
 
   overflow-x: hidden;
-  cursor: url('/image/point.png'),auto;
+  cursor: url("/image/point.png"), auto;
 }
 
 /* popup css */
@@ -17,16 +17,15 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-150%) scale(0);
-  }
-  
-  
-  .popup.active .content {
-  transition: all 300ms ease-in-out;
-  transform: translate(-50%,-50%) scale(1);
-  }
+  transform: translate(-50%, -150%) scale(0);
+}
 
-  /* popup css end  */
+.popup.active .content {
+  transition: all 300ms ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* popup css end  */
 a {
   cursor: pointer;
   transition: all 200ms linear;
@@ -60,7 +59,7 @@ h6 span {
   padding: 390px 0px;
 }
 
-#popup-1{
+#popup-1 {
   z-index: 99 !important;
 }
 
@@ -296,24 +295,22 @@ h6 span {
   box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
 }
 
-.popup .close{
+.popup .close {
   position: absolute;
-    top: 34px;
-    right: -14px;
-    transition: all 200ms;
-    font-size: 40px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
+  top: 34px;
+  right: -14px;
+  transition: all 200ms;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
 }
 .popup .close:hover {
   color: orange;
 }
 
-  @media (max-width: 1000px) 
-{
-  .popup
-  {
+@media (max-width: 1000px) {
+  .popup {
     padding: 0px 0px;
     height: 347px;
   }
