@@ -125,7 +125,8 @@ router.post("/login", async (req, res) => {
   passport.authenticate('local', {
    
     successRedirect: '/homepage2',
-    failureRedirect: '/homepage',
+    failureRedirect: '/',
+    successFlash: true,
     failureFlash: true
   })(req, res);
 
