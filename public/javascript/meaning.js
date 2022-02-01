@@ -5,6 +5,22 @@ let notFound = document.querySelector('.not_found');
 let defBox = document.querySelector('.def');
 let audioBox = document.querySelector('.audio');
 let loading = document.querySelector('.loading');
+let submitbtn=document.getElementById('registerbtn');
+let submitbtn1=document.getElementById('loginbtn');
+submitbtn.addEventListener('click', function(e)
+{
+
+alert("Registered Successfully")
+
+
+})
+submitbtn1.addEventListener('click', function(e)
+{
+
+alert("Logined Successfully")
+
+})
+
 
 searchBtn.addEventListener('click', function(e)
 {
@@ -21,6 +37,7 @@ searchBtn.addEventListener('click', function(e)
         alert('Word is required !!');
         return;
     }
+
 
     getData(word);
 })

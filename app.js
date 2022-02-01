@@ -14,6 +14,13 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const flash = require("connect-flash");
+const sgMail = require('@sendgrid/mail');
+const crypto = require('crypto');
+sgMail.setApiKey(process.env['SENDGRID_API_KEY']);
+
+
+
+
 // const AuthController = require('./Controllers/Auth.Controller')
 
 const {
@@ -21,15 +28,17 @@ const {
   signRefreshToken,
   verifyRefreshToken,
 } = require("jwthelper");
+const e = require("express");
+const { error } = require("console");
 
 app.use(methodOverride("_method"));
 
-app.use(flash());
+
 
 //Setting Up mongoose
   //mongodb://127.0.0.1/keyhole
 mongoose
-  .connect("mongodb://localhost:27017/keyhole", {
+  .connect("mongodb://127.0.0.1/keyhole", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -58,6 +67,10 @@ app.get("/login", function (req, res) {
   res.render("login");
 });
 
+
+
+
+
 app.get("/forget_password", function (req, res) {
   res.render("forget_password");
 });
@@ -73,7 +86,7 @@ app.get("/explore", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about");
 });
-// app.use(session({ secret: 'key hole', resave: true, saveUninitialized: true }));
+
 
 app.get("/hompage2", (req, res) => {
   res.render("homepage2");
@@ -82,102 +95,137 @@ app.get("/homepage2#search_tab", (req, res) => {
   res.render("hompage2#search_tab");
 });
 
+
+app.use(session({ cookie: { maxAge: 60000 }, 
+  secret: 'woot',
+  resave: true, 
+  saveUninitialized: true}));
+app.use(flash());
 app.post("/register", async (req, res) => {
-  // const salt = bcrypt.genSaltSync(saltRounds);
-  //    const hash=  await bcrypt.hash(req.body.password, salt);
 
-  const createToken = async () => {
-    const token = await jwt.sign(
-      { _id: "61e97b8ac37cf0238eeaad63" },
-      "dzsfxgchjjj"
-    );
-    console.log(token);
-    const userVer = await jwt.verify(token, "dzsfxgchjjj");
-    console.log(userVer);
-  };
+ 
+  
+        User.findOne({ email: req.body.email }, (err, found) => {
+          if (err) {
+            console.log(err);
+            res.statusCode = 500;
+            res.json(err);
+          }
+          else {
+            if (found) {
+              res.statusCode = 409;
+              res.json({ success: false, message: "Email already exists" });
+            }
+            else {
+              var password = req.body.password;
+              var name = req.body.name;
+              name = name.trim();
+              if (name == "") {
+                res.statusCode = 400;
+                res.json({ success: false, message: "Username must not be empty" })
+              }
+              password = password.trim();
+              if (password === "") {
+                res.statusCode = 400;
+                res.json({ success: false, message: "Password must not be empty" })
+              }
+              if (password.length < 4) {
+                res.statusCode = 422;
+                res.json({ success: false, message: 'Password length should be greater than 4 characters' })
+              }
+              bcrypt.hash(req.body.password, 10, function (err, hash) {
 
-  createToken();
 
-  try {
-    const hashed1 = await bcrypt.hash(req.body.password, 10);
-    const newuser = new User({
-      name: req.body.name,
-      email: req.body.email,
-      dob: req.body.dob,
-      password: hashed1,
-      // console.log(email1 +""+name1+"" +""+dateofbirth+""+password);
-    });
+                
+                if (err) {
+                  console.log(err);
+                  res.statusCode = 500;
+                  res.json(err);
+                } else {
+                  const user = {
+                    email: req.body.email,
+                    name: req.body.name,
+                    dob:req.body.dob,
+                    password: hash
+                  }  
+  
+                 
 
-    const token = await newuser.generateAuthToken();
-    console.log("the token part" + token);
+                  const newUser = new User(user);
+                  newUser.save(err => {
+                    if (err) {
+                      console.log(err);
+                      res.statusCode = 500;
+                      res.json(err);
+                    } else {
+                      
+                      var showUser = {
+                        success: true,
+                        status: ' Registration Successful',
+                        name: {}
+                      };
+                      showUser.name = name;
+                     
+                      res.render("homepage")
 
-    console.log(newuser);
-    await newuser.save((error, data) => {
-      if (error) console.log(error);
-      else {
-        res.status(201).render("homepage");
-        console.log("running");
-      }
-    });
-  } catch (error) {
-    console.log(error);
-    res.redirect("/register");
-    res.status(400).send("invalid email");
+        }
+      });
+    }
+
   }
+  );
+
+  
+ 
+}
+}
 });
+}
+
+);
+
+
+
+
+    
+    
+   
+    
 
 app.post("/login", async (req, res) => {
-  try {
-    // const usermail=await User.findone({email:email});
-    const email = req.body.email;
-    const password = req.body.password;
-    // const user={email:req.body.email ,password:}
 
-    const useremail = await User.findOne({ email: email });
-
-    if (useremail.password === password) {
-      res.status(201).render("homepage2");
-    } else {
-      res.send("password are not matchig");
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(400).send("invalid login");
-  }
-
-  // const newuser = new User({
-
-  //     email: req.body.email,
-  //     password: req.body.password,})
-
-  // if(newuser.email==null){
-  //     return res.status(400).send('cannot find user');
-  // }
-
-  // try{
-
-  // if(usermail.password==password)
-  // res.status(201).render("homepage2");
-
-  // if(await bcrypt.compare(req.body.password, newuser.password)) {
-  //     res.send('Success')
-  //   } else {
-  //     res.send('Not Allowed')
-  //   }
-  // } catch {
-  //   res.status(500).send()
-  // }
-
-  // else{
-
-  // res.send("invalid login");
-  // }
-
-  //     } catch (error) {
-  //         console.log(error)
-  //         res.status(400).send("qwertg")
-  //     }
+  var email = req.body.email;
+  var password = req.body.password;
+  User.findOne({ email: email })
+    .then(user => {
+      if (user) {
+        bcrypt.compare(password, user.password, function (err, result) {
+          if (err) {
+            console.log(err);
+          }
+          if (result) {
+          
+            // res.status(200).json({ success: true, status: "Logged in successfully"});
+            res.render("homepage2")
+          } else {
+            res.status(403).json({ success: false, message: 'Incorrect userrname or password' });
+          }
+        });
+      } else {
+        res.status(404).json({ success: false, message: 'Username not found' });
+      }
+    });
 });
+
+
+//forgot password
+app.post('/forget_password', (req, res) => {
+  const email=req.body.email
+  res.send(email)
+  console.log(hii)
+
+})
+
 
 app.engine("ejs", ejsmate);
 app.set("view engine", "ejs");
