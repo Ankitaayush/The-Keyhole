@@ -14,26 +14,10 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const flash = require("connect-flash");
-const sgMail = require('@sendgrid/mail');
-const crypto = require('crypto');
-sgMail.setApiKey(process.env['SENDGRID_API_KEY']);
+const cookieParser = require('cookie-parser')
 
-
-
-
-// const AuthController = require('./Controllers/Auth.Controller')
-
-const {
-  signAccessToken,
-  signRefreshToken,
-  verifyRefreshToken,
-} = require("jwthelper");
-const e = require("express");
-const { error } = require("console");
-
-app.use(methodOverride("_method"));
-
-
+// Passport Config
+require('./config/passport')(passport);
 
 //Setting Up mongoose
   //mongodb://127.0.0.1/keyhole
@@ -54,177 +38,47 @@ app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect flash
+app.use(flash());
+
+
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
+
+
 app.listen(port, () => {
   console.log("listning!" + port);
 });
-
-app.get("/", (req, res) => {
-  res.render("homepage");
-});
-
-//Showing login form
-app.get("/login", function (req, res) {
-  res.render("login");
-});
-
-
-
-
-
-app.get("/forget_password", function (req, res) {
-  res.render("forget_password");
-});
-
-app.get("/register", (req, res) => {
-  res.render("register");
-});
-
-app.get("/explore", (req, res) => {
-  res.render("explore");
-});
-
-app.get("/about", (req, res) => {
-  res.render("about");
-});
-
-
-app.get("/hompage2", (req, res) => {
-  res.render("homepage2");
-});
-app.get("/homepage2#search_tab", (req, res) => {
-  res.render("hompage2#search_tab");
-});
-
 
 app.use(session({ cookie: { maxAge: 60000 }, 
   secret: 'woot',
   resave: true, 
   saveUninitialized: true}));
+
+
 app.use(flash());
-app.post("/register", async (req, res) => {
 
- 
-  
-        User.findOne({ email: req.body.email }, (err, found) => {
-          if (err) {
-            console.log(err);
-            res.statusCode = 500;
-            res.json(err);
-          }
-          else {
-            if (found) {
-              res.statusCode = 409;
-              res.json({ success: false, message: "Email already exists" });
-            }
-            else {
-              var password = req.body.password;
-              var name = req.body.name;
-              name = name.trim();
-              if (name == "") {
-                res.statusCode = 400;
-                res.json({ success: false, message: "Username must not be empty" })
-              }
-              password = password.trim();
-              if (password === "") {
-                res.statusCode = 400;
-                res.json({ success: false, message: "Password must not be empty" })
-              }
-              if (password.length < 4) {
-                res.statusCode = 422;
-                res.json({ success: false, message: 'Password length should be greater than 4 characters' })
-              }
-              bcrypt.hash(req.body.password, 10, function (err, hash) {
-
-
-                
-                if (err) {
-                  console.log(err);
-                  res.statusCode = 500;
-                  res.json(err);
-                } else {
-                  const user = {
-                    email: req.body.email,
-                    name: req.body.name,
-                    dob:req.body.dob,
-                    password: hash
-                  }  
-  
-                 
-
-                  const newUser = new User(user);
-                  newUser.save(err => {
-                    if (err) {
-                      console.log(err);
-                      res.statusCode = 500;
-                      res.json(err);
-                    } else {
-                      
-                      var showUser = {
-                        success: true,
-                        status: ' Registration Successful',
-                        name: {}
-                      };
-                      showUser.name = name;
-                     
-                      res.render("homepage")
-
-        }
-      });
-    }
-
-  }
-  );
-
-  
- 
-}
-}
-});
-}
-
-);
-
-
-
-
-    
-    
-   
-    
-
-app.post("/login", async (req, res) => {
-
-  var email = req.body.email;
-  var password = req.body.password;
-  User.findOne({ email: email })
-    .then(user => {
-      if (user) {
-        bcrypt.compare(password, user.password, function (err, result) {
-          if (err) {
-            console.log(err);
-          }
-          if (result) {
-          
-            // res.status(200).json({ success: true, status: "Logged in successfully"});
-            res.render("homepage2")
-          } else {
-            res.status(403).json({ success: false, message: 'Incorrect userrname or password' });
-          }
-        });
-      } else {
-        res.status(404).json({ success: false, message: 'Username not found' });
-      }
-    });
-});
-
-
-//forgot password
-app.post('/forget_password', (req, res) => {
-  const email=req.body.email
-  res.send(email)
-  console.log(hii)
-
-})
+//Routes
+app.use('/', require('./routes/user.js'));
 
 
 app.engine("ejs", ejsmate);
