@@ -20,7 +20,7 @@ const cookieParser = require('cookie-parser')
 require('./config/passport')(passport);
 
 //Setting Up mongoose
-  //mongodb://127.0.0.1/keyhole
+  //mongodb://127.0.0.1/keyhole  -- localhost:27010
 mongoose
   .connect("mongodb://127.0.0.1/keyhole", {
     useNewUrlParser: true,
