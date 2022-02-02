@@ -2,6 +2,14 @@ html {
   scroll-behavior: smooth;
 }
 
+
+.alert {
+  height: 51px;
+  top: 100px;
+  padding: .75rem 36.25rem;
+  z-index: 9999;
+}
+
 .navbar {
   background-color: #2a2b38;
   border-radius: 39px;

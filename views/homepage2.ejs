@@ -26,9 +26,11 @@
     <link rel="stylesheet" href="./css/back_design.css">
     <link rel="stylesheet" href="./css/search_anim.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/preloader.css">
 </head>
 
 <body>
+    <div id="preloader"></div>
     <section id="backg-1">
         <header>
             <nav class="navbar">
@@ -47,7 +49,7 @@
                     <li><a href="explore">Explore</a></li>
                     <li><a href="about">About</a></li>
                     <li><a href="#foot">Contact</a></li>
-                    <a href="logout" class="but"><button onclick="togglePopup()" class="first-button">Logout</button></a>
+                    <a href="logout" class="but"><button class="first-button">Logout</button></a>
                 </ul>
             </nav>
         </header>
@@ -164,11 +166,34 @@
     </section>
 
      <!-- popup js  -->
-     <script src="./javascript/popuplogout.js"></script>
+     <!-- <script src="./javascript/popuplogout.js"></script> -->
+    <!-- <script src="./javascript/popuplogin.js"></script> -->
+
+
+     <!-- hamburger js  -->
+    <script src="./javascript/hamburger.js"></script>
 
     <!-- JS for word meaning and API -->
     <script  src="./javascript/meaning.js"> </script>
 
+
+    <!-- Alert Close Js  -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"></script>
+
+    <script src="./javascript/preloader.js"></script>
 </body>
 
 </html>

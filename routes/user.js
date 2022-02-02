@@ -42,10 +42,11 @@ router.get("/homepage2", (req, res) => {
     res.render("homepage2");
   });
 
-  // Logout
+
+//Logout
 router.get('/logout', (req, res) => {
-  console.log("hi")
-    // req.flash('success_msg', 'You are logged out');
+  console.log("logged out")
+    req.flash('success_msg', 'You are logged out');
     res.redirect('/');
   });
 
@@ -70,6 +71,7 @@ router.post("/register", async (req, res) => {
           if (name == "") {
             res.statusCode = 400;
             res.render("homepage",{message: "Username must not be empty"})
+            // req.flash("Name must not be empty");
           }
           password = password.trim();
           if (password === "") {
@@ -125,7 +127,7 @@ router.post("/login", async (req, res) => {
   passport.authenticate('local', {
    
     successRedirect: '/homepage2',
-    failureRedirect: '/homepage',
+    failureRedirect: '/',
     failureFlash: true
   })(req, res);
 

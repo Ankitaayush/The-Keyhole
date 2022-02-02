@@ -1,11 +1,11 @@
 
-//         function togglePopup() {
+//   function togglePopup() {
 //   let text = "Are you sure you wanna Logout ?";
-//   if (confirm(text) == true) {
-//     text = "You pressed OK!";
-//     window.location.href="homepage.ejs";
+//   if (confirm(text)) {
+//     console.log('You pressed OK.');
+
+//     // window.location.href="/views/homepage.ejs";
 //   } else {
-//     text = "You canceled!";
+//     console.log('You Canceled.');
 //   }
-//   document.getElementById("demo").innerHTML = text;
 // }

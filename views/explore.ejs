@@ -20,9 +20,13 @@
     <link rel="stylesheet" href="./css/footer1.css">
 
     <link rel="stylesheet" href="./css/explore.css">
+    <link rel="stylesheet" href="./css/preloader.css">
+
 </head>
 
 <body>
+    <div id="preloader"></div>
+
     <section id="backg-1">
         <header>
             <nav class="navbar">
@@ -42,7 +46,7 @@
                     <li><a href="#" style="color: rgba(0, 136, 169, 1);">Explore</a></li>
                     <li><a href="about">About</a></li>
                     <li><a href="#foot">Contact</a></li>
-                    <a href="logout" class="but"><button onclick="togglePopup()" class="first-button">Logout</button></a>
+                    <a href="logout" class="but"><button class="first-button">Logout</button></a>
                 </ul>
             </nav>
         </header>
@@ -175,19 +179,6 @@
             </footer>
         </section>
 
-        <!-- popup js  -->
-    <script>
-        function togglePopup() {
-  let text = "Are you sure you wanna Logout ?";
-  if (confirm(text) == true) {
-    text = "You pressed OK!";
-    window.location.href="../homepage.html";
-  } else {
-    text = "You canceled!";
-  }
-  document.getElementById("demo").innerHTML = text;
-}
-    </script>
 
         <!-- hamburger js  -->
         <script>
@@ -210,6 +201,8 @@
                 $('.blur').css('filter', 'blur(0px)'); // Removes blur from all when none are hovered
             })
         </script>
+    <script src="./javascript/preloader.js"></script>
+
 </body>
 
 </html>

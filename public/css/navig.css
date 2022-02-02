@@ -2,9 +2,16 @@ html{
     scroll-behavior: smooth;
 }
 
-#flashmsg{
-   
+.alert {
+    position: fixed;
+    height: auto;
+    top: 110px;
+    width: 100vw;
+    max-width: 100%;
+    z-index: 9999;
 }
+
+
 .navbar {
     background-color: #2a2b38;
     border-radius: 39px;
@@ -252,6 +259,11 @@ h1::before {
         align-items: flex-start;
         flex-direction: column;
         font-size: 10px;
+    }
+    .alert
+    {
+        position: absolute;
+        top: 95px;
     }
 }
 
