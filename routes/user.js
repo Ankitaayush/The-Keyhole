@@ -26,6 +26,11 @@ router.get("/register", (req, res) => {
 router.get("/forget_password", function (req, res) {
     res.render("forget_password");
   });
+
+//Reset Password
+router.get("/reset_password", function (req, res) {
+    res.render("reset_password");
+  });
   
 //Explore Page
 router.get("/explore", (req, res) => {
