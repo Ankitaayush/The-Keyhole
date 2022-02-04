@@ -36,6 +36,16 @@ router.get("/reset_password", function (req, res) {
 router.get("/explore", (req, res) => {
     res.render("explore");
   });
+
+//Word of the Day Page
+router.get("/wotd", (req, res) => {
+    res.render("wotd");
+  });
+
+//Quote of the Day Page
+router.get("/qotd", (req, res) => {
+    res.render("qotd");
+  });
   
 //About page 
 router.get("/about", (req, res) => {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./image/logo_icon.png">
+    <title>KeyHole</title>
+    <link rel="stylesheet" href="./css/wotd.css" />
+    <link rel="stylesheet" href="./css/preloader.css" />
+
+  </head>
+  <body>
+    <div id="preloader"></div>
+
+    <div class="date" onselectstart="return false"></div>
+    <button class="back_but" onclick="history.back()">BACK</button>
+    <div class="data">
+      <h2 class="word1"></h2>
+      <br />
+      <br />
+      <div class="defn"></div>
+      <br />
+      <div class="container">
+        <div>Part of speech :&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="pos"></div>
+      </div>
+      <br />
+      <div class="contain">
+        <div>Example :</div>
+        <br />
+        <div class="example"></div>
+      </div>
+      <br />
+    </div>
+
+    <script src="./javascript/wotd.js"></script>
+    <script src="./javascript/preloader.js"></script>
+  </body>
+</html>

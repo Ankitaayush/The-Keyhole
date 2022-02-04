@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Oldenburg&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css2?family=Copse&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+body {
+    max-width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    cursor: url('/image/point.png'),auto;
+  }
+
+/* Button CSS */
+button {
+  cursor: pointer;
+}
+
+button.back_but {
+  font-family: Montserrat, sans-serif;
+  line-height: 40px;
+  width: 90px;
+  font-size: 15pt;
+  margin-top: 20px;
+  margin-left: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 13px;
+  font-weight: 700;
+  background-color: #232741;
+  color: white;
+  z-index: 999;
+  box-shadow: 4px 4px 10px 5px #c9c9c97c;
+
+}
+button.back_but:hover {
+  background-color: wheat;
+  color: black;
+  box-shadow: 3px 3px 0px 3px #c9c9c97c;
+}
+
+/* Date CSS */
+div.date {
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 20px;
+  margin-right: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #232741;
+  color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 3px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px 5px #c9c9c97c;
+  font-family: "Oldenburg", cursive;
+  border: 1px solid grey;
+  z-index: 9;
+  cursor: default;
+}
+
+@media (max-width: 340px) {
+  div.date {
+    margin-top: 800px;
+  }
+}
+
+/* NASA Particle CSS  */
+canvas { 
+    display: block; 
+  }
+  
+  #particles-js{ 
+    position:absolute; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #232741; 
+    background-repeat: no-repeat; 
+    background-size: 20%; 
+    background-position: 50% 50%; 
+  }
+  
+/* Rotating Box CSS */
+  .contain{
+    max-width: 650px;
+      margin: 0px auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+  }
+
+  @keyframes tipsy {
+    0% {
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+  }
+  
+  
+  a {
+    color: #f8eccf;
+    text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+    text-align: justify;
+    font-size: 50px;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0px;
+    font-family: 'Copse', serif;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: default;
+  }
+  
+  a:before,
+  a:after {
+    content: '';
+    padding: .9em .4em;
+    position: absolute;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    top: 50%;
+    display: block;
+    border: 15px solid red;
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    animation: 10s infinite alternate ease-in-out tipsy;
+  }
+  
+  a:before {
+    border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    z-index: -1;
+  }
+  
+  a:after {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
+    box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+  }
+
+  @media(max-width:1000px)
+  {
+    a{
+      font-size: 30px;
+    }
+    a:before,
+    a:after {
+      border: 10px solid #d9524a;
+    }
+  }
+
+  .author{
+    color: #f0fa97;
+    text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+    font-size: 20px;
+    padding: 30px 20px;
+    position: fixed;
+    z-index: 1;
+    bottom: 10%;
+    font-family: 'Satisfy', cursive;
+  }

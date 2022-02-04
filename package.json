@@ -17,6 +17,7 @@
     "bootstrap": "^5.1.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^14.2.0",
     "ejs-mate": "^3.0.0",

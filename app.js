@@ -16,6 +16,15 @@ const jwt = require("jsonwebtoken");
 const flash = require("connect-flash");
 const cookieParser = require('cookie-parser')
 
+
+// const cors = require("cors")
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000/",
+//   })
+// )
+
+
 // Passport Config
 require('./config/passport')(passport);
 

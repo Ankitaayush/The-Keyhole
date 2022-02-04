@@ -1,7 +1,11 @@
+// const cors = require("cors");
+
+
+//Particle JS
 particlesJS("particles-js", {
     "particles": {
         "number": {
-            "value": 80,
+            "value": 260,
             "density": {
                 "enable": true,
                 "value_area": 800
@@ -26,27 +30,27 @@ particlesJS("particles-js", {
             }
         },
         "opacity": {
-            "value": 0.5,
-            "random": false,
+            "value": 1,
+            "random": true,
             "anim": {
-                "enable": false,
+                "enable": true,
                 "speed": 1,
-                "opacity_min": 0.1,
+                "opacity_min": 0,
                 "sync": false
             }
         },
         "size": {
-            "value": 4,
+            "value": 3,
             "random": true,
             "anim": {
                 "enable": false,
-                "speed": 40,
-                "size_min": 0.1,
+                "speed": 4,
+                "size_min": 0.3,
                 "sync": false
             }
         },
         "line_linked": {
-            "enable": true,
+            "enable": false,
             "distance": 150,
             "color": "#ffffff",
             "opacity": 0.4,
@@ -54,16 +58,16 @@ particlesJS("particles-js", {
         },
         "move": {
             "enable": true,
-            "speed": 6,
+            "speed": 1,
             "direction": "none",
-            "random": false,
+            "random": true,
             "straight": false,
             "out_mode": "out",
             "bounce": false,
             "attract": {
                 "enable": false,
                 "rotateX": 600,
-                "rotateY": 1200
+                "rotateY": 600
             }
         }
     },
@@ -72,11 +76,11 @@ particlesJS("particles-js", {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "repulse"
+                "mode": "bubble"
             },
             "onclick": {
                 "enable": true,
-                "mode": "push"
+                "mode": "repulse"
             },
             "resize": true
         },
@@ -88,14 +92,14 @@ particlesJS("particles-js", {
                 }
             },
             "bubble": {
-                "distance": 400,
-                "size": 40,
+                "distance": 170,
+                "size": 0,
                 "duration": 2,
-                "opacity": 8,
+                "opacity": 0,
                 "speed": 3
             },
             "repulse": {
-                "distance": 200,
+                "distance": 150,
                 "duration": 0.4
             },
             "push": {
@@ -107,4 +111,28 @@ particlesJS("particles-js", {
         }
     },
     "retina_detect": true
-});
+})
+
+
+//JS For Date
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.querySelector('.date').innerHTML =d + " / " + m + " / " + y;
+
+// Quote of the Day API
+let quo = document.querySelector('.quote');
+let auth = document.querySelector('.author');
+const api_url=`https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/today`;
+async function getQuote()
+{
+    const response = await fetch(api_url);
+    const data = await response.json();
+    
+    const q=data[0].q;
+    const a=data[0].a;
+    quo.innerText='" '+q+' "';
+    auth.innerText="- "+a;
+}
+getQuote();

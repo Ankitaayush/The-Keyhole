@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+@import url('https://fonts.googleapis.com/css2?family=Oldenburg&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url('/image/wotd.png');
+  max-width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center left 50%;
+  font-family: Montserrat, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  cursor: url('/image/point.png'),auto;
+}
+button {
+  cursor: pointer;
+  box-shadow: 6px 13px 0px 0px #c9c9c97c;
+}
+
+button.back_but {
+  font-family: Montserrat, sans-serif;
+  line-height: 40px;
+  width: 90px;
+  font-size: 15pt;
+  margin-top: 20px;
+  margin-left: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 13px;
+  font-weight: 700;
+  background-color: #a7dee7;
+  z-index: 999;
+}
+button.back_but:hover {
+  background-color: #2a282b;
+  color: #ccf5fc;
+}
+
+
+.data{
+  max-width: 650px;
+    margin: 0px auto;
+    text-align: center;
+    font-family: 'Oldenburg', cursive;
+}
+.word1{
+  color: #2a4477;
+  font-size: 60px;
+  text-transform: uppercase;
+  background-color: #a7dee779;
+  display: inline-block;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 30px;
+  /* margin-bottom: 155px; */
+}
+
+.defn{
+  background-color: #e4ce92bd;
+  border-radius: 20px;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  background-color: #e4a1b79f;
+  border-radius: 14px;
+  padding: 10px 10px;
+  font-weight: 500;
+  color: #022772;
+}
+
+.pos{
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+
+.contain{
+  background-color: #cee492bd;
+  padding: 10px 10px;
+  border-radius: 18px;
+  color: #022772;
+}
+
+.example{
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: black;
+}
+
+div.date{
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 20px;
+  margin-right: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #a7dee7;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 3px;
+  border-radius: 15px;
+  box-shadow: 6px 13px 0px 0px #c9c9c967;
+  cursor: default;
+}
+
+@media (max-width : 340px)
+{
+  div.date{
+    margin-top: 800px;
+  }
+}
+
+@media (max-width : 600px)
+{
+  .word1{
+    font-size: 30px;
+  }
+}
