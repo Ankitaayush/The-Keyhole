@@ -1,0 +1,125 @@
+/* ///  Fonts  /// */
+
+body{
+    background-color: cornsilk;
+  max-width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center left 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  cursor: url('/image/point.png'),auto;
+}
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.25em;
+}
+
+h1, 
+h2, 
+p {
+    font-family: 'Red Hat Text', sans-serif;
+    color: #303030;
+}
+
+/* /// Card Container /// */
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* /// Cards /// */
+cards {
+    width: 90%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.btc,
+.cosmos,
+.ethereum {
+    display: grid;
+    max-width: 300px;
+    min-width: 250px;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(50px, 60px) 1fr;
+    grid-template: 
+        "info"
+        "chart";
+    border-radius: 30px;
+}
+
+button {
+    cursor: pointer;
+    box-shadow: 6px 13px 0px 0px #c9c9c97c;
+  }
+  
+  button.back_but {
+    font-family: Montserrat, sans-serif;
+    line-height: 40px;
+    width: 90px;
+    font-size: 15pt;
+    margin-top: 20px;
+    margin-left: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 13px;
+    font-weight: 700;
+    background-color: rgb(241, 215, 110);
+    z-index: 999;
+  }
+  button.back_but:hover {
+    background-color: black;
+    color: rgb(241, 215, 110);
+  }
+
+.btc {
+    box-shadow: 10px 10px 20px 1px rgb(247, 148, 26);
+}
+
+.cosmos {
+    box-shadow: 10px 10px 20px 1px rgba(46, 49, 72, 0.712);
+}
+
+.ethereum {
+    box-shadow: 10px 10px 20px 1px rgba(77, 56, 216, 0.63);
+}
+
+.asset-info {
+    grid-area: info;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5% 0 5%;
+}
+
+.title {
+    display: inline-flex;
+}
+
+card h1 {
+    margin-left: 10px;
+}
+
+
+/* /// Charts /// */
+#btcChart,
+#cosmosChart,
+#ethereumChart {
+    grid-area: chart;
+    border-radius: 0px 0px 30px 30px;
+    margin-top: auto;
+}

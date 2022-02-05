@@ -42,6 +42,11 @@ router.get("/wotd", (req, res) => {
     res.render("wotd");
   });
 
+//Crypto Watch
+router.get("/crypto", (req, res) => {
+    res.render("crypto");
+  });
+
 //Quote of the Day Page
 router.get("/qotd", (req, res) => {
     res.render("qotd");
