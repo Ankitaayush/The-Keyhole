@@ -40,8 +40,8 @@
 - Search Meaning of any word/phrase with audio pronunciation (Used API)
 - Get Word of the Day (Used API)
 - Get Quote of the Day (Used API)
-- Save your Notes
-- See the Cryptocurrency current graph (Beta)
+- Save your Notes (Used React)
+- See the Cryptocurrency current graph (in Beta)
 - Material UI across all pages with advanced Particle JS
 
 ### How-to-run
