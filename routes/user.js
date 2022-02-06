@@ -72,75 +72,81 @@ router.get('/logout', (req, res) => {
 
 //Register
 router.post("/register", async (req, res) => {
-
-    User.findOne({ email: req.body.email }, (err, found) => {
-      if (err) {
-        console.log(err);
-        res.statusCode = 500;
-        res.json(err);
-      }
-      else {
-        if (found) {
-          res.statusCode = 409;
-          res.json({ success: false, message: "Email already exists" });
-        }
-        else {
-          var password = req.body.password;
-          var name = req.body.name;
-          name = name.trim();
-          if (name == "") {
-            res.statusCode = 400;
-            res.render("homepage",{message: "Username must not be empty"})
-            // req.flash("Name must not be empty");
+  User.findOne({ name: req.body.name }, (err, found) => {
+    if (err) {
+      console.log(err);
+      res.statusCode = 500;
+      return res.json(err);
+    } else {
+      if (found) {
+        res.statusCode = 409
+       return  res.json({ success: false, message: "username already taken" });
+      } else {
+        User.findOne({ email: req.body.email }, (err, found) => {
+          if (err) {
+            console.log(err);
+            res.statusCode = 500;
+            return res.json(err);
           }
-          password = password.trim();
-          if (password === "") {
-            res.statusCode = 400;
-            res.json({ success: false, message: "Password must not be empty" })
-          }
-          if (password.length < 4) {
-            res.statusCode = 422;
-            res.json({ success: false, message: 'Password length should be greater than 4 characters' })
-          }
-          bcrypt.hash(req.body.password, 10, function (err, hash) {
-            if (err) {
-              console.log(err);
-              res.statusCode = 500;
-              res.json(err);
-            } else {
-              const user = {
-                email: req.body.email,
-                name: req.body.name,
-                dob:req.body.dob,
-                password: hash
-              }  
-              const newUser = new User(user);
-              newUser.save(err => {
+          else {
+            if (found) {
+              res.statusCode = 409;
+             return res.json({ success: false, message: "Email already exists" });
+            }
+            else {
+              var password = req.body.password;
+              var name = req.body.name;
+              name = name.trim();
+              if (name == "") {
+                res.statusCode = 400;
+                return res.json({ success: false, message: "Username must not be empty" })
+              }
+              password = password.trim();
+              if (password === "") {
+                res.statusCode = 400;
+               return res.json({ success: false, message: "Password must not be empty" })
+              }
+              if (password.length < 6) {
+                res.statusCode = 422;
+               return  res.json({ success: false, message: 'Password length should be greater than 6 characters' })
+              }
+              bcrypt.hash(req.body.password, 10, function (err, hash) {
                 if (err) {
                   console.log(err);
                   res.statusCode = 500;
-                  res.json(err);
+                  return res.json(err);
                 } else {
-                  req.flash('success_msg','you are now registred and can login')
-                  var showUser = {
-                    success: true,
-                    status: ' Registration Successful',
-                    name: {}
-                  };
-                  showUser.name = name;
-                  res.render("homepage")
-
+                  const user = {
+                    email: req.body.email,
+                    name: req.body.name,
+                    dob:req.body.dob,
+                    password: hash
+                  }
+                  const newUser = new User(user);
+                  newUser.save(err => {
+                    if (err) {
+                      console.log(err);
+                     res.statusCode = 500;
+                      return res.json(err);
+                    } else {
+                      var showUser = {
+                        success: true,
+                        status: ' Registration Successful',
+                        user: {}
+                      };
+                      showUser.user = user;
+                    return  res.status(200).json(showUser);
+                    }
+                  });
+                }
+              });
+            }
+          }
+        });
+      }
     }
   });
-}
-}
-);
-}
-}
 });
-}
-);
-
 //login
 router.post("/login", async (req, res) => {
 
