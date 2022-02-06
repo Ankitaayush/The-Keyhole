@@ -6,7 +6,7 @@
 - [Domain](#Domain)
 - [Team](#Team)
 - [Tech-Stack](#Tech-Stack)
-- [Pictures](#Picture)
+- [Pictures](#Pictures)
 - [Achievement](#Achievement)
 - [How-to-Run](#How-to-run)
 - [Future-Updates](#Future-Updates)
