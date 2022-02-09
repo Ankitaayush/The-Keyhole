@@ -31,7 +31,7 @@ require('./config/passport')(passport);
 //Setting Up mongoose
   //mongodb://127.0.0.1/keyhole  -- localhost:27010
 mongoose
-  .connect("mongodb://127.0.0.1/keyhole", {
+  .connect("mongodb+srv://uraj212001:63186318@uzibytes.rmw8i.mongodb.net/users_keyhole?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
