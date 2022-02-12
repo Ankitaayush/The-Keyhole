@@ -15,8 +15,8 @@ html {
   justify-content: space-between;
   align-items: center;
   z-index: 999;
+  top: 2px;
   position: fixed;
-  top: 0px;
   width: 100%;
   opacity: 0.9;
 }

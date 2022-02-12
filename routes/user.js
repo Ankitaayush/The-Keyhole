@@ -135,7 +135,9 @@ router.post("/register", async (req, res) => {
                         user: {}
                       };
                       showUser.user = user;
-                    return  res.status(200).json(showUser);
+                    // return  res.status(200).json(showUser);
+    res.render("homepage",{message:"welcome to home page"});
+
                     }
                   });
                 }
