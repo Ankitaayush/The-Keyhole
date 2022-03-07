@@ -124,7 +124,7 @@ document.querySelector('.date').innerHTML =d + " / " + m + " / " + y;
 // Quote of the Day API
 let quo = document.querySelector('.quote');
 let auth = document.querySelector('.author');
-const api_url=`https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/today`;
+const api_url=`https://api.allorigins.win/raw?url=https://zenquotes.io/api/today`;
 async function getQuote()
 {
     const response = await fetch(api_url);
