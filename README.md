@@ -50,7 +50,7 @@
 - Fork our Repository.
 - Install node in your local.
 - Enter command - (npm i) to install node modules.
-- Enter command - (npm run dev) to run on your local host.
+- Enter command - (npm run dev) to run on your local host..
 
 ### Future-Updates
 
